@@ -1,0 +1,56 @@
+﻿@model Game
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete Game</h2>
+        </div>
+
+        <div class="mb-3 row">
+            <label asp-for="Title" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Title" readonly class="form-control" />
+
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label asp-for="Author" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input  asp-for="Author" readonly class="form-control" />
+            </div>
+        </div>
+
+
+        <div class="mb-3 row">
+            <label asp-for="Description" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <textarea asp-for="Description" readonly class="form-control border-0 shadow"></textarea>
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label asp-for="ISBN" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="ISBN" readonly class="form-control" />
+            </div>
+        </div>
+
+
+
+        <div class="mb-3 row">
+            <label asp-for="Price" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Price" readonly class="form-control" />
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <button type="submit" class="btn btn-primary" style="width: 150px">Delete</button>
+            <a asp-controller="Game" asp-action="Index" class="btn btn-secondary" style="width: 150px">
+                Back to List
+            </a>
+        </div>
+    </div>
+</form>
+
+
+

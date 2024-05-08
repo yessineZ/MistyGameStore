@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Game>
+
+<div class="row pb-3">
+    @foreach (var game in Model) {
+        <div class="col-lg-3 col-sm-6">
+            <div class="row p-2">
+                <div class="col-12 p-1">
+                    <div class="card border-0 p-3 shadow  border-top border-5 rounded">
+                        @if (game.ImageUrl != null) {
+                            <img src="@game.ImageUrl" class="card-img-top rounded image" />
+                        }
+                        else {
+                            <img src="https://placehold.co/500x600/png" class="card-img-top rounded image" />
+                        }
+
+                        <div class="card-body pb-0">
+                            <div class="pl-1">
+                                <p class="card-title h5  opacity-75 text-uppercase text-center">@game.Title</p>
+                                <p class="card-title text-warning text-center">by <b>@game.Author</b></p>
+                            </div>
+                            <div class="pl-1">
+                                <p class="text-opacity-75 text-center mb-0">
+                                    Price:
+                                    <span class="fw-bold">
+                                        @game.Price$
+                                    </span>
+                                </p>
+                            </div>
+ 
+                        </div>
+                        <div>
+                            <a asp-action="Details"
+                               asp-route-id="@game.Id"
+                               class="btn btn-primary bg-gradient border-0 form-control">
+                                Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .white {
+        color : white ; 
+    }
+    .image {
+        height :300px ; 
+    }
+</style>

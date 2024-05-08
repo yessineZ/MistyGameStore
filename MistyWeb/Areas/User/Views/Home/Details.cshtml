@@ -1,0 +1,88 @@
+﻿@model Game
+
+
+
+<form method="post">
+    <input hidden asp-for="Title" />
+    <div class="card shadow border-0 mt-4 mb-4">
+        <div class="card-header bg-secondary bg-gradient text-light py-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="text-white text-uppercase">@Model.Title</h3>
+                    <p class="text-white-50 fw-semibold mb-0">by @Model.Author</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="py-3">
+                <div class="row">
+                    <div class="col-6 col-md-2 offset-lg-1 pb-1">
+                        <a asp-action="Index" class="btn btn-outline-primary bg-gradient mb-5 fw-semibold btn-sm text-uppercase">
+                            <small>Back to home</small>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-3 offset-lg-1 text-center mb-3">
+
+
+
+                        @if (Model.ImageUrl != null)  {
+                            <div id="carouselExampleIndicators" class="carousel  slide" data-bs-ride="carousel">
+                                        <div class="carousel-item active">
+                                            <img src="@Model.ImageUrl" class="d-block w-100" alt="...">
+                                        </div>
+                                    
+                            </div>
+                     
+                        }
+
+
+
+
+
+
+
+
+                    </div>
+                    <div class="col-12 col-lg-6 offset-lg-1">
+                        <div class="row ps-2">
+                            <h6 class="text-dark text-opacity-50 ">ISBN : @Model.ISBN</h6>
+                        </div>
+                        <div class="row ps-2">
+                            <h6 class="text-dark text-opacity-50  pb-2">
+                                List Price:
+                                <span class="text-decoration-line-through">
+                                    @Model.Price
+                                </span>
+                            </h6>
+                        </div>
+                
+                        <div class="row text-center ps-2">
+                            <div class="p-1 col-3 col-lg-2 bg-white text-warning fw-bold">
+                                <div>Price</div>
+                            </div>
+                            <div class="p-1 col-3 col-lg-2 bg-white text-warning fw-bold">
+                                <div>@Model.Price $</div>
+                        </div>
+                        <div class="row pl-2 my-3">
+                            <p class="text-secondary lh-sm">@Html.Raw(Model.Description) </p>
+                        </div>
+
+
+                       
+                        <div class="row">
+                            <div class="col-12 col-md-6 pb-1">
+                                <a asp-action="idk" asp-route-id="@Model.Id" type="submit"
+                                        class="btn btn-primary bg-gradient  w-100 py-2 text-uppercase fw-semibold">
+                                    Add to Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
